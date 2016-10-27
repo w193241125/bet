@@ -20,7 +20,11 @@ class CreateMatchInfoTable extends Migration
             $table->dateTime('fixture');
             $table->dateTime('deadline');
             $table->integer('tm_match_id');
-            $table->boolean('is_real');
+            $table->integer('home_team_id');
+            $table->integer('away_team_id');
+            $table->tinyInteger('home_score');
+            $table->tinyInteger('away_score');
+            $table->tinyInteger('match_state_id');
             $table->timestamps();
 
         });

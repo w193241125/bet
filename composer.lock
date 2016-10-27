@@ -106,16 +106,16 @@
         },
         {
             "name": "backpack/crud",
-            "version": "3.1.33",
+            "version": "3.1.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/CRUD.git",
-                "reference": "c316d86e5178668401513296547a559d1399bafc"
+                "reference": "16fbaec4830d7d774cfdfa5d2e8cf6f52502433c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Laravel-Backpack/CRUD/c316d86e5178668401513296547a559d1399bafc.zip",
-                "reference": "c316d86e5178668401513296547a559d1399bafc",
+                "url": "https://packagist.phpcomposer.com/files/Laravel-Backpack/CRUD/16fbaec4830d7d774cfdfa5d2e8cf6f52502433c.zip",
+                "reference": "16fbaec4830d7d774cfdfa5d2e8cf6f52502433c",
                 "shasum": ""
             },
             "require": {
@@ -166,20 +166,20 @@
                 "read",
                 "update"
             ],
-            "time": "2016-10-17 15:57:38"
+            "time": "2016-10-21 22:20:28"
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "2.1.7",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "75f8fdada8fb7820639266ad521d1f8f996487b0"
+                "reference": "98521de2610c402c1c967c2d60bb2ccf69310bb7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/Laravel-Backpack/PermissionManager/75f8fdada8fb7820639266ad521d1f8f996487b0.zip",
-                "reference": "75f8fdada8fb7820639266ad521d1f8f996487b0",
+                "url": "https://packagist.phpcomposer.com/files/Laravel-Backpack/PermissionManager/98521de2610c402c1c967c2d60bb2ccf69310bb7.zip",
+                "reference": "98521de2610c402c1c967c2d60bb2ccf69310bb7",
                 "shasum": ""
             },
             "require": {
@@ -238,7 +238,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2016-09-12 12:09:41"
+            "time": "2016-10-23 13:02:38"
         },
         {
             "name": "barryvdh/elfinder-flysystem-driver",
@@ -1167,16 +1167,16 @@
         },
         {
             "name": "jenssegers/date",
-            "version": "v3.2.6",
+            "version": "v3.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jenssegers/date.git",
-                "reference": "ce421c34d7d3be22f3afccaae3718cb58f82a488"
+                "reference": "b842ccbba7f22bc532e5bb9fa94ccb78d503584a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://packagist.phpcomposer.com/files/jenssegers/date/ce421c34d7d3be22f3afccaae3718cb58f82a488.zip",
-                "reference": "ce421c34d7d3be22f3afccaae3718cb58f82a488",
+                "url": "https://packagist.phpcomposer.com/files/jenssegers/date/b842ccbba7f22bc532e5bb9fa94ccb78d503584a.zip",
+                "reference": "b842ccbba7f22bc532e5bb9fa94ccb78d503584a",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
                 "time",
                 "translation"
             ],
-            "time": "2016-10-06 13:59:12"
+            "time": "2016-10-21 20:32:13"
         },
         {
             "name": "jeremeamia/SuperClosure",
