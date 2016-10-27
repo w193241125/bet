@@ -24,7 +24,7 @@ class CreateMatchInfoTable extends Migration
             $table->integer('away_team_id');
             $table->tinyInteger('home_score');
             $table->tinyInteger('away_score');
-            $table->tinyInteger('match_state_id');
+            $table->tinyInteger('match_state');
             $table->timestamps();
 
         });
