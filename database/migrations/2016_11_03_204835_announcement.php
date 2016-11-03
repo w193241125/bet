@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMatchResultTable extends Migration
+class Announcement extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateMatchResultTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('betsys_match_result',function(Blueprint $table)
+        Schema::create('betsys_announcement_info',function(Blueprint $table)
         {
-
-            $table->integer('match_id')->primary();
-
-            $table->tinyInteger('home_score');
-            $table->tinyInteger('away_score');
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('title');
+            $table->text('body');
             $table->timestamps();
 
         });
@@ -33,7 +31,6 @@ class CreateMatchResultTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('betsys_match_result');
+        Schema::drop('betsys_announcement_info');
     }
 }

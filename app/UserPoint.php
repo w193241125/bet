@@ -19,7 +19,15 @@ class UserPoint extends Model
      *
      * @var string
      */
-    protected $table = ' 	betsys_point_info';
+    protected $table = 'betsys_point_info';
 
-    protected $user_id,$point;
+
+    /**
+     * 获取point对应的用户
+     * 一对一
+     */
+    public function user()
+    {
+        return $this->belongsTo('App\User','id','user_id');
+    }
 }

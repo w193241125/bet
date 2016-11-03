@@ -16,7 +16,8 @@ class CreatePointInfoTable extends Migration
         //
         Schema::create('betsys_point_info',function(Blueprint $table)
         {
-            $table->integer('user_id');
+            $table->integer('user_id')->primary();
+            $table->date('last_sign_at');
             $table->integer('point');
             $table->timestamps();
 

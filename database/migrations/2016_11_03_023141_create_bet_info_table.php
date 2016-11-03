@@ -18,7 +18,9 @@ class CreateBetInfoTable extends Migration
         {
             $table->increments('bet_id');
             $table->integer('user_id');
+
             $table->integer('match_id');
+
             // cost how many points to bet
             $table->integer('cost');
             // win some points form a bet

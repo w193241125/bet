@@ -68,12 +68,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-        //获取注册的用户id，插入point表
+        //获取注册的用户id，插入point表,新用户默认100point
         $user = User::where('email',$data['email'])->firstOrFail();
-        UserPoint::create([
-            'user_id' => $user->id,
-            'point' => 100,
-        ]);
+
+        $userPoint = new UserPoint();
+        $userPoint->user_id = $user->id;
+        $userPoint->point = 100;
+        $userPoint->save();
+
         return $u;
     }
 }

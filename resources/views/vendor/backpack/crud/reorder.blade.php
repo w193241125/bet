@@ -94,7 +94,7 @@
 @endsection
 
 @section('after_scripts')
-  <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" type="text/javascript"></script>
+  <script src="https://cdn.bootcss.com/jqueryui/1.11.3/jquery-ui.min.js" type="text/javascript"></script>
   <script src="{{ url('vendor/backpack/nestedSortable/jquery.mjs.nestedSortable2.js') }}" type="text/javascript"></script>
 
   <script type="text/javascript">
