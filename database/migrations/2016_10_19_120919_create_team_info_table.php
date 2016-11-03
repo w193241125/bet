@@ -16,10 +16,13 @@ class CreateTeamInfoTable extends Migration
         //
         Schema::create('betsys_team_info',function(Blueprint $table)
         {
+            //team id primary key
             $table->increments('team_id');
             $table->string('tm_team_id');
             $table->string('team_name');
+            //is tm national team
             $table->boolean('is_tm_nt');
+            //is in real world
             $table->boolean('is_real');
             $table->timestamps();
 

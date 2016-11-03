@@ -22,8 +22,8 @@ class CreateMatchInfoTable extends Migration
             $table->integer('tm_match_id');
             $table->integer('home_team_id');
             $table->integer('away_team_id');
-
-            $table->tinyInteger('match_state');
+            // the game is closed?
+            $table->tinyInteger('is_closed');
             $table->timestamps();
 
         });
@@ -36,6 +36,6 @@ class CreateMatchInfoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('betsys_match_info');
     }
 }
