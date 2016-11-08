@@ -36,6 +36,6 @@ class CreateMatchInfoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('betsys_match_info');
+        Schema::dropIfExists('betsys_match_info');
     }
 }

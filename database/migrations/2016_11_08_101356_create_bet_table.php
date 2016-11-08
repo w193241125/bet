@@ -31,6 +31,6 @@ class CreateBetTable extends Migration
     public function down()
     {
         //
-        Schema::drop('betsys_bet');
+        Schema::dropIfExists('betsys_bet');
     }
 }

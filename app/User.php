@@ -45,12 +45,24 @@ class User extends Authenticatable
         $this->notify(new ResetPasswordNotification($token));
     }
 
+
+
     /**
      * 获取用户的point
+     * 一对一
      */
     public function userPoint()
     {
         return $this->hasOne('App\UserPoint','user_id','id');
+    }
+
+    /**
+     * 获取用户的login_info
+     * 一对一
+     */
+    public function loginInfo()
+    {
+        return $this->hasOne('App\LoginInfo','user_id','id');
     }
 
 }

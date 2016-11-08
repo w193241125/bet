@@ -18,6 +18,8 @@ class CreatePointInfoTable extends Migration
         {
             $table->integer('user_id')->primary();
             $table->date('last_sign_at');
+            //连续签到天数
+            $table->tinyInteger('consecutive_sign_days');
             $table->integer('point');
             $table->timestamps();
 
@@ -32,6 +34,6 @@ class CreatePointInfoTable extends Migration
     public function down()
     {
         //
-        Schema::drop('betsys_point_info');
+        Schema::dropIfExists('betsys_point_info');
     }
 }

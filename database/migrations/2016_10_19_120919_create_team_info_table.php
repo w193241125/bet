@@ -40,6 +40,6 @@ class CreateTeamInfoTable extends Migration
     public function down()
     {
         //
-        Schema::drop('betsys_team_info');
+        Schema::dropIfExists('betsys_team_info');
     }
 }

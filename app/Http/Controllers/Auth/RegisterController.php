@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\UserPoint;
+use App\LoginInfo;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,14 +70,22 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+
         //获取注册的用户id，插入point表,新用户默认100point
         $user = User::where('email',$data['email'])->firstOrFail();
 
         $userPoint = new UserPoint();
         $userPoint->user_id = $user->id;
+
         $userPoint->point = 100;
         $userPoint->save();
 
+        //设置登录信息
+        $loginInfo = new LoginInfo();
+        $loginInfo->user_id = $user->id;
+        $loginInfo->last_login_at = Carbon::now();
+        $loginInfo->consecutive_login_days = 0;
+        $loginInfo->save();
         return $u;
     }
 }

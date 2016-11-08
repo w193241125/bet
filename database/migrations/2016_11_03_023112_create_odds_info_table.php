@@ -33,6 +33,6 @@ class CreateOddsInfoTable extends Migration
     public function down()
     {
         //
-        Schema::drop('betsys_odds_info');
+        Schema::dropIfExists('betsys_odds_info');
     }
 }

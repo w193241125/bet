@@ -14,6 +14,11 @@ class BetInfo extends Model
      */
     protected $table = 'betsys_bet_info';
 
+    //自定义主键
+    protected $primaryKey = 'bet_id';
+    //使用非自增主键
+    public $incrementing = false;
+
     /**
      * 获取bet_info对应的bet
      * 一对一

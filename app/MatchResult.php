@@ -13,6 +13,11 @@ class MatchResult extends Model
      */
     protected $table = 'betsys_match_result';
 
+    //自定义主键
+    protected $primaryKey = 'match_id';
+    //使用非自增主键
+    public $incrementing = false;
+
     /**
      * 获取result对应的match
      * 一对一
