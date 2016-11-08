@@ -8,15 +8,15 @@ class Match extends Model
 {
     //
     /**
-     * ¹ØÁªµ½Ä£ĞÍµÄÊı¾İ±í
+     * å…³è”åˆ°æ¨¡å‹çš„æ•°æ®è¡¨
      *
      * @var string
      */
     protected $table = 'betsys_match_info';
 
     /**
-     * »ñÈ¡±ÈÈüµÄ½á¹û
-     * Ò»¶ÔÒ»
+     * è·å–æ¯”èµ›çš„ç»“æœ
+     * ä¸€å¯¹ä¸€
      */
     public function matchResult()
     {

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Odds extends Model
 {
     /**
-     * ¹ØÁªµ½Ä£ĞÍµÄÊı¾İ±í
+     * å…³è”åˆ°æ¨¡å‹çš„æ•°æ®è¡¨
      *
      * @var string
      */

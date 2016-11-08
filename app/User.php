@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
 
     /**
-     * 获取关联到用户的point
+     * 鑾峰彇鐢ㄦ埛鐨刾oint
      */
     public function userPoint()
     {

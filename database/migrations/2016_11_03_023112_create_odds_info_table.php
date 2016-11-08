@@ -16,7 +16,7 @@ class CreateOddsInfoTable extends Migration
         //
         Schema::create('betsys_odds_info',function(Blueprint $table)
         {
-            $table->increments('odds_id');
+            $table->increments('id');
             $table->integer('match_id');
             $table->decimal('odds', 5, 2);
             $table->string('result');

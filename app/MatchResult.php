@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class MatchResult extends Model
 {
     /**
-     * ¹ØÁªµ½Ä£ĞÍµÄÊı¾İ±í
+     * å…³è”åˆ°æ¨¡å‹çš„æ•°æ®è¡¨
      *
      * @var string
      */
     protected $table = 'betsys_match_result';
 
     /**
-     * »ñÈ¡result¶ÔÓ¦µÄmatch
-     * Ò»¶ÔÒ»
+     * è·å–resultå¯¹åº”çš„match
+     * ä¸€å¯¹ä¸€
      */
     public function match()
     {

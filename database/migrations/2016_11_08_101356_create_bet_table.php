@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Announcement extends Migration
+class CreateBetTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class Announcement extends Migration
      */
     public function up()
     {
-        Schema::create('betsys_announcement_info',function(Blueprint $table)
+        Schema::create('betsys_bet',function(Blueprint $table)
         {
-            $table->increments('id');
+            $table->increments('bet_id');
             $table->integer('user_id');
-            $table->string('title');
-            $table->text('body');
-            $table->timestamps();
+            $table->integer('match_id');
+
 
         });
     }
@@ -31,6 +30,7 @@ class Announcement extends Migration
      */
     public function down()
     {
-        Schema::drop('betsys_announcement_info');
+        //
+        Schema::drop('betsys_bet');
     }
 }

@@ -16,7 +16,7 @@ class CreateBetInfoTable extends Migration
         //
         Schema::create('betsys_bet_info',function(Blueprint $table)
         {
-            $table->increments('bet_id');
+            $table->integer('bet_id')->primary();
             $table->integer('user_id');
 
             $table->integer('match_id');

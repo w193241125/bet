@@ -16,7 +16,7 @@ class CreateMatchInfoTable extends Migration
         //
         Schema::create('betsys_match_info',function(Blueprint $table)
         {
-            $table->increments('match_id');
+            $table->increments('id');
             $table->dateTime('fixture');
             $table->dateTime('deadline');
             $table->integer('tm_match_id');

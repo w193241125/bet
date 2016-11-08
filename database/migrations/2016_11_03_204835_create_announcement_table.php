@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTeamInfoTable extends Migration
+class CreateAnnouncementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,23 +13,15 @@ class CreateTeamInfoTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('betsys_team_info',function(Blueprint $table)
+        Schema::create('betsys_announcement',function(Blueprint $table)
         {
-            //team id primary key
             $table->increments('id');
-            $table->string('tm_team_id');
-            $table->string('team_name');
-            //is tm national team
-            $table->boolean('is_tm_nt');
-            //is in real world
-            $table->boolean('is_real');
+            $table->integer('user_id');
+            $table->string('title');
+            $table->text('body');
             $table->timestamps();
 
         });
-
-
-
     }
 
     /**
@@ -39,7 +31,6 @@ class CreateTeamInfoTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::drop('betsys_team_info');
+        Schema::drop('betsys_announcement');
     }
 }
