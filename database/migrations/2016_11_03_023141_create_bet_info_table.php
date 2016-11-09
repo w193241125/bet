@@ -17,10 +17,6 @@ class CreateBetInfoTable extends Migration
         Schema::create('betsys_bet_info',function(Blueprint $table)
         {
             $table->integer('bet_id')->primary();
-            $table->integer('user_id');
-
-            $table->integer('match_id');
-
             // cost how many points to bet
             $table->integer('cost');
             // win some points form a bet

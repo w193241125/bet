@@ -24,7 +24,7 @@ class MatchResult extends Model
      */
     public function match()
     {
-        return $this->belongsTo('App\match','match_id','match_id');
+        return $this->belongsTo('App\match','id','match_id');
     }
 
 }

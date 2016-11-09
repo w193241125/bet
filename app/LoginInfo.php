@@ -27,6 +27,7 @@ class LoginInfo extends Model
 
     public function __construct()
     {
+        parent::__construct();
         $this->last_login_at = Carbon::now();
         $this->consecutive_login_days = 0;
     }

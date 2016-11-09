@@ -6,14 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bet extends Model
 {
-    //
-
     /**
      * 关联到模型的数据表
      *
      * @var string
      */
     protected $table = 'betsys_bet';
+
 
     /**
      * 获取bet_info

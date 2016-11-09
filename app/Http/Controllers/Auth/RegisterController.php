@@ -86,6 +86,7 @@ class RegisterController extends Controller
         $loginInfo->last_login_at = Carbon::now();
         $loginInfo->consecutive_login_days = 0;
         $loginInfo->save();
+
         return $u;
     }
 }

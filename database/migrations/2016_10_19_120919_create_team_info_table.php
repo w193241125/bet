@@ -18,12 +18,14 @@ class CreateTeamInfoTable extends Migration
         {
             //team id primary key
             $table->increments('id');
-            $table->string('tm_team_id');
-            $table->string('team_name');
+            $table->string('tm_team_id')->unique()->default(0);
+            $table->string('team_name')->default(config('bet.bet.default_team_name'));
             //is tm national team
-            $table->boolean('is_tm_nt');
+            $table->boolean('is_tm_nt')->default(0);
             //is in real world
-            $table->boolean('is_real');
+            $table->boolean('is_real')->default(0);
+            $table->string('team_url');
+            $table->string('league_url');
             $table->timestamps();
 
         });

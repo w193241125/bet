@@ -23,7 +23,11 @@ class CreateMatchInfoTable extends Migration
             $table->integer('home_team_id');
             $table->integer('away_team_id');
             // the game is closed?
-            $table->tinyInteger('is_closed');
+            $table->tinyInteger('is_closed')->default(0);
+            // 是否友谊赛?
+            $table->tinyInteger('is_friendly')->default(0);
+            //match url
+            $table->string('match_url');
             $table->timestamps();
 
         });

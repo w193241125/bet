@@ -29,6 +29,7 @@ class UserPoint extends Model
 
     public function __construct()
     {
+        parent::__construct();
         $this->last_sign_at = Carbon::now();
         $this->consecutive_sign_days = 0;
         $this->point = 0;

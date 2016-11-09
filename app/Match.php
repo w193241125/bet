@@ -20,8 +20,10 @@ class Match extends Model
      */
     public function matchResult()
     {
-        return $this->hasOne('App\MatchResult','match_id','match_id');
+        return $this->hasOne('App\MatchResult','match_id','id');
     }
+
+
 
 
 }
