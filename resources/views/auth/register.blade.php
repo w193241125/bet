@@ -38,6 +38,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('tm_team_id') ? ' has-error' : '' }}">
+                            <label for="tm_team_id" class="col-md-4 control-label">TM球队ID</label>
+
+                            <div class="col-md-6">
+                                <input id="tm_team_id" type="text" class="form-control" name="tm_team_id" value="{{ old('tm_team_id') }}" required>
+
+                                @if ($errors->has('tm_team_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('tm_team_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

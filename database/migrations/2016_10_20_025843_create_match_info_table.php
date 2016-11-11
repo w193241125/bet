@@ -17,15 +17,16 @@ class CreateMatchInfoTable extends Migration
         Schema::create('betsys_match_info',function(Blueprint $table)
         {
             $table->increments('id');
+            $table->dateTime('start_bet_time');
             $table->dateTime('fixture');
             $table->dateTime('deadline');
             $table->integer('tm_match_id');
             $table->integer('home_team_id');
             $table->integer('away_team_id');
             //
-            $table->tinyInteger('match_state')->default(0);
+            $table->tinyInteger('match_state')->default(1);
             //
-            $table->tinyInteger('match_type')->default(0);
+            $table->tinyInteger('match_type')->default(1);
             //match url
             $table->string('match_url');
             $table->timestamps();

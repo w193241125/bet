@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'tm_team_id' => 'required|integer|unique:users,tm_team_id'
         ]);
     }
 
@@ -68,6 +69,7 @@ class RegisterController extends Controller
         $u = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'tm_team_id' => $data['tm_team_id'],
             'password' => bcrypt($data['password']),
         ]);
 

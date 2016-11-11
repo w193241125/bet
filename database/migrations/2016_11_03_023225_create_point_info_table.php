@@ -19,8 +19,8 @@ class CreatePointInfoTable extends Migration
             $table->integer('user_id')->primary();
             $table->date('last_sign_at');
             //连续签到天数
-            $table->tinyInteger('consecutive_sign_days');
-            $table->integer('point');
+            $table->tinyInteger('consecutive_sign_days')->default(0);
+            $table->integer('point')->default(0);
             $table->timestamps();
 
         });

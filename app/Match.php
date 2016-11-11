@@ -24,6 +24,23 @@ class Match extends Model
     }
 
 
+    /**
+     * 获取比赛的赔率
+     * 一对多
+     */
+    public function odds()
+    {
+        return $this->hasMany('App\Odds','match_id','id');
+    }
+
+    /**
+     * 获取此比赛的竞猜信息
+     * 远程一对多
+     */
+    public function bets()
+    {
+        return $this->hasManyThrough('App\Bet', 'App\Odds','match_id','odds_id');
+    }
 
 
 }

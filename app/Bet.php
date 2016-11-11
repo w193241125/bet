@@ -15,6 +15,13 @@ class Bet extends Model
 
 
     /**
+     * 表明模型是否应该被打上时间戳
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * 获取bet_info
      * 一对一
      */
@@ -24,9 +31,21 @@ class Bet extends Model
     }
 
     /**
-     * 表明模型是否应该被打上时间戳
-     *
-     * @var bool
+     * 获取bet对应的用户
+     * 多对一
      */
-    public $timestamps = false;
+    public function user()
+    {
+        return $this->belongsTo('App\User','id','user_id');
+    }
+
+    /**
+     * 获取bet对应的赔率
+     * 多对一
+     */
+    public function odds()
+    {
+        return $this->belongsTo('App\Odds','id','odds_id');
+    }
+
 }

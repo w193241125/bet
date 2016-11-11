@@ -18,7 +18,7 @@ class CreateLoginInfoTable extends Migration
             $table->integer('user_id')->primary();
             $table->dateTime('last_login_at');
             //连续登录天数
-            $table->tinyInteger('consecutive_login_days');
+            $table->tinyInteger('consecutive_login_days')->default(0);
 
 
         });

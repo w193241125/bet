@@ -17,7 +17,7 @@ class CreateBetTable extends Migration
         {
             $table->increments('id');
             $table->integer('user_id');
-            $table->integer('match_id');
+            $table->integer('odds_id');
 
 
         });

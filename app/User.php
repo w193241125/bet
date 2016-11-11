@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','tm_team_id'
     ];
 
     /**
@@ -63,6 +63,33 @@ class User extends Authenticatable
     public function loginInfo()
     {
         return $this->hasOne('App\LoginInfo','user_id','id');
+    }
+
+    /**
+     * 获取用户的球队
+     * 一对一
+     */
+    public function team()
+    {
+        return $this->hasOne('App\Team','tm_team_id','id');
+    }
+
+    /**
+     * 获取用户的竞猜记录
+     * 一对多
+     */
+    public function bets()
+    {
+        return $this->hasMany('App\Bet','user_id','id');
+    }
+
+    /**
+     * 获取用户发的通告
+     * 一对多
+     */
+    public function announcements()
+    {
+        return $this->hasMany('App\Announcement','user_id','id');
     }
 
 }
