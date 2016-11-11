@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 
 class RegisterController extends Controller
 {

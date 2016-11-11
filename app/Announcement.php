@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class announcement extends Model
+class Announcement extends Model
 {
     /**
      * 关联到模型的数据表
