@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
+
 class RegisterController extends Controller
 {
     /*
@@ -68,6 +69,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        // Create a client with a base URI
+
+        $client = new Client(['cookies' => true]);
+
+        try
+        {
+            $response = $client->request('POST', config('bet.bet.tm_login_url'), [
+                'form_params' => [
+                    'user' => config('bet.tmacount.user'),
+                    'password' => config('bet.tmacount.password'),
+                ]
+            ]);
+            echo $response->getBody();
+
+
+
+        }
+        catch(Exception $e)
+        {
+            abort(500,'error');
+        }
+
+
+
+
+        exit;
+
         $u = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

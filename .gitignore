@@ -9,3 +9,5 @@ Homestead.yaml
 /public/vendor
 /public/packages
 bower_components/
+database/seeds/.gitkeep
+database/migrations/.gitkeep
