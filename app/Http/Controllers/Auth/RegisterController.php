@@ -71,23 +71,30 @@ class RegisterController extends Controller
     {
 
         // Create a client with a base URI
-
+        //使用cookies
         $client = new Client(['cookies' => true]);
 
         try
         {
-            $response = $client->request('POST', config('bet.bet.tm_login_url'), [
+            $response = $client->request('POST', config('bet.tmurl.tm_login_url'), [
                 'form_params' => [
                     'user' => config('bet.tmacount.user'),
                     'password' => config('bet.tmacount.password'),
                 ]
             ]);
+
+            $response = $client->request('POST', config('bet.tmurl.tm_team_info_url'), [
+                'form_params' => [
+                    'club_id' => $data['tm_team_id'],
+                ]
+            ]);
+
             echo $response->getBody();
 
 
 
         }
-        catch(Exception $e)
+        catch(GuzzleException $e)
         {
             abort(500,'error');
         }
