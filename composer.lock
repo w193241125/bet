@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "92b4da60d356a07add01918c5bcf1a6b",
-    "content-hash": "ea795feccede8bc8d8780b83a442632f",
+    "hash": "c5b9baf7e2d6eb0e57c7ec044b776f1d",
+    "content-hash": "e94b6b548ed828a94d3170b8bc1be940",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -401,6 +401,46 @@
                 "tinymce"
             ],
             "time": "2016-08-18 14:55:46"
+        },
+        {
+            "name": "caouecs/laravel-lang",
+            "version": "3.0.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "reference": "7c5d9ba460165b964408114c2d6e8e32258f3873"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/caouecs/Laravel-lang/7c5d9ba460165b964408114c2d6e8e32258f3873.zip",
+                "reference": "7c5d9ba460165b964408114c2d6e8e32258f3873",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.10"
+            },
+            "suggest": {
+                "overtrue/laravel-lang": "Command to add languages in your project"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "caouecs",
+                    "email": "caouecs@caouecs.net"
+                }
+            ],
+            "description": "Languages for Laravel",
+            "keywords": [
+                "lang",
+                "languages",
+                "laravel",
+                "lpm"
+            ],
+            "time": "2016-10-31 19:34:07"
         },
         {
             "name": "classpreloader/classpreloader",

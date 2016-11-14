@@ -9,8 +9,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Client;
+
 
 
 class RegisterController extends Controller
@@ -57,7 +56,8 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'tm_team_id' => 'required|integer|unique:users,tm_team_id'
+            //bail为验证失败后停止检查属性其它验证规则，tm_team_id_valid为自定义规则，见AppServiceProvider.php
+            'tm_team_id' => 'bail|required|integer|unique:users,tm_team_id|tm_team_id_valid'
         ]);
     }
 
@@ -69,41 +69,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        // Create a client with a base URI
-        //使用cookies
-        $client = new Client(['cookies' => true]);
-
-        try
-        {
-            $response = $client->request('POST', config('bet.tmurl.tm_login_url'), [
-                'form_params' => [
-                    'user' => config('bet.tmacount.user'),
-                    'password' => config('bet.tmacount.password'),
-                ]
-            ]);
-
-            $response = $client->request('POST', config('bet.tmurl.tm_team_info_url'), [
-                'form_params' => [
-                    'club_id' => $data['tm_team_id'],
-                ]
-            ]);
-
-            echo $response->getBody();
-
-
-
-        }
-        catch(GuzzleException $e)
-        {
-            abort(500,'error');
-        }
-
-
-
-
-        exit;
-
         $u = User::create([
             'name' => $data['name'],
             'email' => $data['email'],

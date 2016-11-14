@@ -12,7 +12,8 @@
         "backpack/permissionmanager": "^2.1",
         "barryvdh/laravel-debugbar": "^2.3",
         "doctrine/dbal": "^2.5",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "caouecs/laravel-lang": "~3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
