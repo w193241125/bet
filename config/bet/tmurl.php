@@ -1,5 +1,4 @@
 <?php
-
 return [
 
 
@@ -23,7 +22,7 @@ return [
     |
     */
 
-    'tm_league_url' => config('bet.tmurl.tm_url').'/league',
+    'tm_league_url' => '/league',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +33,7 @@ return [
     |
     */
 
-    'tm_club_url' => config('bet.tmurl.tm_url').'/club',
+    'tm_club_url' => '/club',
 
 
     /*
@@ -46,7 +45,7 @@ return [
     |
     */
 
-    'tm_login_url' => config('bet.tmurl.tm_url').'/ajax/login.ajax.php',
+    'tm_login_url' => '/ajax/login.ajax.php',
 
     /*
     |--------------------------------------------------------------------------
@@ -57,7 +56,7 @@ return [
     |
     */
 
-    'tm_match_info_url' => config('bet.tmurl.tm_url').'/ajax/match.ajax.php',
+    'tm_match_info_url' => '/ajax/match.ajax.php',
 
     /*
     |--------------------------------------------------------------------------
@@ -68,7 +67,7 @@ return [
     |
     */
 
-    'tm_team_info_url' => config('bet.tmurl.tm_url').'/ajax/tooltip.ajax.php',
+    'tm_team_info_url' => '/ajax/tooltip.ajax.php',
 
 
 

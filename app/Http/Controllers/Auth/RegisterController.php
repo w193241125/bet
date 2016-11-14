@@ -76,6 +76,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
 
+
         //获取注册的用户id，插入point表,新用户默认100point
         $user = User::where('email',$data['email'])->firstOrFail();
 

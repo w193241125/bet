@@ -18,3 +18,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+// Admin Interface Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
+{
+    //Route::get('dashboard', 'Admin\AdminController@index');
+
+    // [...] other routes
+
+    // Backpack\CRUD: Define the resources for the entities you want to CRUD.
+    CRUD::resource('announcement', 'Admin\AnnouncementCrudController');
+    CRUD::resource('team', 'Admin\TeamCrudController');
+});

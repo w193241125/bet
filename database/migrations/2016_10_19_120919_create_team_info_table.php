@@ -20,9 +20,7 @@ class CreateTeamInfoTable extends Migration
             $table->increments('id');
             $table->string('tm_team_id')->unique()->default(0);
             $table->string('team_name')->default(config('bet.bet.default_team_name'));
-
-            $table->string('team_url');
-            $table->string('league_url');
+            $table->string('league');
             $table->timestamps();
 
         });

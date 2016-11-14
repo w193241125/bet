@@ -76,8 +76,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => 'zh_CN',
+    'locale' => 'en',
+    //'locale' => 'zh-CN',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'zh_CN',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------

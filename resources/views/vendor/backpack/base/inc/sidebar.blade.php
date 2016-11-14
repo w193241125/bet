@@ -19,8 +19,10 @@
           <!-- ================================================ -->
           <!-- ==== Recommended place for admin menu items ==== -->
           <!-- ================================================ -->
-          <li><a href="{{ url(config('backpack.base.route_prefix').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 
+          <li><a href="{{ url(config('backpack.base.route_prefix').'/dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
+          <li><a href="{{ url('admin/announcement') }}"><i class="fa fa-tag"></i> <span>公告管理</span></a></li>
+          <li><a href="{{ url('admin/team') }}"><i class="fa fa-group"></i> <span>Team管理</span></a></li>
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>
@@ -33,6 +35,7 @@
               <li><a href="{{ url('admin/permission') }}"><i class="fa fa-key"></i> <span>Permissions</span></a></li>
             </ul>
           </li>
+
           <li><a href="{{ url(config('backpack.base.route_prefix').'/logout') }}"><i class="fa fa-sign-out"></i> <span>{{ trans('backpack::base.logout') }}</span></a></li>
         </ul>
       </section>

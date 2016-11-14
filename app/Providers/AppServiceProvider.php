@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
             try
             {
                 //模拟登录tm
-                $response = $client->request('POST', config('bet.tmurl.tm_login_url'), [
+                $response = $client->request('POST', config('bet.tmurl.tm_url').config('bet.tmurl.tm_login_url'), [
                     'form_params' => [
                         'user' => config('bet.tmacount.user'),
                         'password' => config('bet.tmacount.password'),
@@ -39,13 +39,12 @@ class AppServiceProvider extends ServiceProvider
                     abort('500','与TM服务器连接失败，请与管理员联系！');
                 }
                 //获取TM team info
-                $response = $client->request('POST', config('bet.tmurl.tm_team_info_url'), [
+                $response = $client->request('POST', config('bet.tmurl.tm_url').config('bet.tmurl.tm_team_info_url'), [
                     'form_params' => [
                         'club_id' => $value,
                     ]
                 ]);
                 $json = json_decode($response->getBody());
-                var_dump($json);
 
                 //验证是否存在此ID
                 if($json->club->status == NULL)
@@ -59,23 +58,20 @@ class AppServiceProvider extends ServiceProvider
                     return False;
                 }
 
-                $team_name = $json->club->club_name;
-                $team_url = $value;
-                $league_url = $json->club->country.'/'.$json->club->division.'/'.$json->club->group;
-                $club = new Team();
+                //判断是否存在此id的球队,如果没有就创建一个
+                $club = Team::where('tm_team_id',$value)->first();
+                if($club == NULL)
+                {
+                    $club = new Team;
+                }
                 $club->tm_team_id = $value;
-                $club->team_name = $team_name;
-                $club->team_url = $team_url;
-                $club->league_url = $league_url;
-
-                exit;
-
-
-
+                $club->team_name = $json->club->club_name;
+                $club->league = $json->club->country.'/'.$json->club->division.'/'.$json->club->group;
+                $club->save();
             }
             catch(GuzzleException $e)
             {
-                Log::warning($e);
+                Log::error($e);
             }
             return True;
         });

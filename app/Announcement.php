@@ -3,15 +3,19 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Backpack\CRUD\CrudTrait;
 
 class Announcement extends Model
 {
+    use CrudTrait;
     /**
      * 关联到模型的数据表
      *
      * @var string
      */
     protected $table = 'betsys_announcement';
+
+    protected $fillable = ['title','body'];
 
     /**
      * 获取通告对应的用户
