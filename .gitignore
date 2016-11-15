@@ -11,3 +11,4 @@ Homestead.yaml
 bower_components/
 database/seeds/.gitkeep
 database/migrations/.gitkeep
+/config/bet/tmacount.php

@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'password' => '',
+    'password' => '1',
 
 
 
