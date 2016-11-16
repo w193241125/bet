@@ -12,3 +12,8 @@ bower_components/
 database/seeds/.gitkeep
 database/migrations/.gitkeep
 /config/bet/tmacount.php
+resources/lang/vendor/backpack/es/
+resources/lang/vendor/backpack/fr/
+resources/lang/vendor/backpack/it/
+resources/lang/vendor/backpack/pt_br/
+resources/lang/vendor/backpack/ro/
