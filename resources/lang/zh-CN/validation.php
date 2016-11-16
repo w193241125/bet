@@ -99,6 +99,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'tm_team_id' => [
+            'tm_team_id_valid' => 'TM球队必须为主队且存在 ',
+        ],
     ],
 
     /*

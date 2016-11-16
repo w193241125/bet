@@ -27,7 +27,65 @@ class AnnouncementCrudController extends CrudController {
 		|--------------------------------------------------------------------------
 		*/
 
-		$this->crud->setFromDb();
+        $this->crud->addColumn
+        (
+            [
+                'name' => 'id', // The db column name
+                'label' => "公告ID" // Table column heading
+            ]
+        );
+        $this->crud->addColumn
+        (
+            [
+                'name' => 'title', // The db column name
+                'label' => "标题" // Table column heading
+            ]
+        );
+        $this->crud->addColumn
+        (
+            [
+                'name' => 'body', // The db column name
+                'label' => "正文内容" // Table column heading
+            ]
+        );
+        $this->crud->addColumn
+        (
+            [
+                // 1-n relationship
+                'label' => "发布者", // Table column heading
+                'type' => "select",
+                'name' => 'user_id', // the column that contains the ID of that connected entity;
+                'entity' => 'user', // the method that defines the relationship in your Model
+                'attribute' => "name", // foreign key attribute that is shown to user
+                'model' => "App\User", // foreign key model
+            ]
+        );
+
+        $options = array
+        (
+            [
+                'name' => 'title',
+                'label' => "标题" ,
+                'type' => 'text'
+            ],
+            [
+                'name' => 'body',
+                'label' => "正文内容" ,
+                'type' => 'textarea'
+            ],
+            [
+                // 1-n relationship
+                'label' => "发布者",
+                'type' => "select2",
+                'name' => 'user_id', // the column that contains the ID of that connected entity;
+                'entity' => 'user', // the method that defines the relationship in your Model
+                'attribute' => "name", // foreign key attribute that is shown to user
+                'model' => "App\User",
+            ]
+        );
+        $this->crud->addFields($options, 'update/create/both');
+
+        //$this->crud->setFromDb();
 
 		// ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');

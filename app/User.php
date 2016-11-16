@@ -89,7 +89,7 @@ class User extends Authenticatable
      */
     public function announcements()
     {
-        return $this->hasMany('App\Announcement','user_id','id');
+        return $this->hasMany('App\Announcement','id','user_id');
     }
 
 }

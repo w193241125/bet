@@ -15,7 +15,7 @@ class Announcement extends Model
      */
     protected $table = 'betsys_announcement';
 
-    protected $fillable = ['title','body'];
+    protected $fillable = ['title','body','user_id'];
 
     /**
      * 获取通告对应的用户
@@ -23,7 +23,7 @@ class Announcement extends Model
      */
     public function user()
     {
-        return $this->belongsTo('App\User','id','user_id');
+        return $this->belongsTo('App\User','user_id','id');
     }
 
 
