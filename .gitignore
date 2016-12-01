@@ -1,13 +1,10 @@
 /node_modules
-/public/storage
 /storage/*.key
 /vendor
 /.idea
 Homestead.json
 Homestead.yaml
 .env
-/public/vendor
-/public/packages
 bower_components/
 database/seeds/.gitkeep
 database/migrations/.gitkeep
@@ -17,3 +14,6 @@ resources/lang/vendor/backpack/fr/
 resources/lang/vendor/backpack/it/
 resources/lang/vendor/backpack/pt_br/
 resources/lang/vendor/backpack/ro/
+.phpstorm.meta.php
+_ide_helper.php
+/public
