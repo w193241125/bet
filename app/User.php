@@ -71,7 +71,7 @@ class User extends Authenticatable
      */
     public function team()
     {
-        return $this->hasOne('App\Team','tm_team_id','id');
+        return $this->hasOne('App\Team','tm_team_id','tm_team_id');
     }
 
     /**
