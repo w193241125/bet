@@ -14,7 +14,8 @@ class BetController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //必须登录，除了index方法
+        $this->middleware('auth')->except('index');
     }
 
     /**
@@ -34,7 +35,7 @@ class BetController extends Controller
      */
     public function create()
     {
-        //
+        return view('bet.create');
     }
 
     /**

@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="{{asset('/css/app.css')}}" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -78,10 +78,36 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="row">
+                <div id="ad" class="col-md-12">
+                    this is ad block
+                </div>
+                <div class="col-md-8 col-md-offset-1">
+                    @yield('content')
+                </div>
+                <div class="col-md-2">
+                    <div class="panel panel-default">
+                        最新公告
+                    </div>
+                </div>
+                <div id="footer" class="col-md-12">
+                    this is footer
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_blank" href="http://fornotes.cn">By nistlrooy</a></li>
+                </ul>
+            </div>
+        </nav>
+
     </div>
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script src="{{asset('/js/app.js')}}"></script>
 </body>
 </html>
