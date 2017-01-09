@@ -19,9 +19,11 @@ class CreateBetInfoTable extends Migration
             $table->integer('bet_id')->primary();
             // cost how many points to bet
             $table->integer('cost');
-            // win some points form a bet
+            // win some points from a bet
             $table->integer('reward');
             $table->string('result');
+            //连续竞猜正确数
+            $table->integer('combos');
             $table->timestamps();
 
         });

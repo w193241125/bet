@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+
+//访问频率限制每分钟10次
+Route::group(['middleware'=>'throttle:10'],function(){
+    Auth::routes();
+});
 Route::resource('bet', 'BetController');
 
 // Admin Interface Routes
