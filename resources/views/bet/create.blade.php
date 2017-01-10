@@ -18,7 +18,7 @@
                         <div class="form-group{{ $errors->has('tmMatchId') ? ' has-error' : '' }}">
                             <label for="tmMatchId" class="col-md-4 control-label">TM Match ID</label>
                             <div class="col-md-6">
-                                <input id="tmMatchId" type="text" class="form-control" name="tmMatchId" value="{{ old('tmMatchId') }}" required autofocus>
+                                <input id="tmMatchId" type="text" class="form-control" name="tmMatchId" value="{{ old('tmMatchId') }}" required>
 
                                 @if ($errors->has('tmMatchId'))
                                     <span class="help-block">
@@ -48,7 +48,7 @@
                         <div class="form-group{{ $errors->has('division') ? ' has-error' : '' }}">
                             <label for="division" class="col-md-4 control-label">Division</label>
                             <div class="col-md-6">
-                                <input id="division" type="text" class="form-control" name="division" value="{{ old('division') }}" required autofocus>
+                                <input id="division" type="text" class="form-control" name="division" value="{{ old('division') }}" required>
 
                                 @if ($errors->has('division'))
                                     <span class="help-block">
@@ -60,7 +60,7 @@
                         <div class="form-group{{ $errors->has('group') ? ' has-error' : '' }}">
                             <label for="group" class="col-md-4 control-label">Group</label>
                             <div class="col-md-6">
-                                <input id="group" type="text" class="form-control" name="group" value="{{ old('group') }}" required autofocus>
+                                <input id="group" type="text" class="form-control" name="group" value="{{ old('group') }}" required>
 
                                 @if ($errors->has('group'))
                                     <span class="help-block">
@@ -92,7 +92,7 @@
                             <label for="homeName" class="col-md-4 control-label">Home Name</label>
 
                             <div class="col-md-6">
-                                <input id="homeName" type="text" class="form-control" name="homeName" value="{{ old('homeName') }}" required autofocus>
+                                <input id="homeName" type="text" class="form-control" name="homeName" value="{{ old('homeName') }}" required>
 
                                 @if ($errors->has('homeName'))
                                     <span class="help-block">
@@ -212,8 +212,9 @@
     </div>
 
     <script>
-        $(function () {
 
-        })
+            jquery('.active').removeClass('active');
+            jquery('.has-error').parent().parent().parent().parent().addClass('active');
+
     </script>
 @endsection
