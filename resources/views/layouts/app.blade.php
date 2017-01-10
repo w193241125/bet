@@ -12,6 +12,14 @@
 
     <!-- Styles -->
     <link href="{{asset('/css/app.css')}}" rel="stylesheet">
+    <style type="text/css">
+
+        #content {
+            margin-top:50px;
+            margin-bottom:50px;
+        }
+
+    </style>
 
     <!-- Scripts -->
     <script>
@@ -22,7 +30,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -78,7 +86,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div id="content" class="container">
             <div class="row">
                 <div id="ad" class="col-md-12">
                     this is ad block

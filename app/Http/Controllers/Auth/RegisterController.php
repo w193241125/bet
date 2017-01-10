@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\UserPoint;
 use App\LoginInfo;
+use App\BetHistory;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -93,6 +94,10 @@ class RegisterController extends Controller
         $loginInfo->consecutive_login_days = 0;
         $loginInfo->save();
 
+        //设置betHistory信息
+        $betHistory = new BetHistory();
+        $betHistory->user_id = $user->id;
+        $betHistory->save();
         return $u;
     }
 }

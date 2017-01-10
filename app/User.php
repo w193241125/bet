@@ -66,6 +66,15 @@ class User extends Authenticatable
     }
 
     /**
+     * 获取用户的bet_history
+     * 一对一
+     */
+    public function betHistory()
+    {
+        return $this->hasOne('App\BetHistory','user_id','id');
+    }
+
+    /**
      * 获取用户的球队
      * 一对一
      */
