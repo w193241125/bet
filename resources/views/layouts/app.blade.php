@@ -117,5 +117,10 @@
 
     <!-- Scripts -->
     <script src="{{asset('/js/app.js')}}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            @yield('js');
+        });
+    </script>
 </body>
 </html>

@@ -210,11 +210,16 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-            jquery('.active').removeClass('active');
-            jquery('.has-error').parent().parent().parent().parent().addClass('active');
-
-    </script>
 @endsection
+
+
+@section('js')
+    @parent
+    if($(".has-error").length)
+    {
+        $('.active').removeClass('active');
+    }
+    $('.has-error').parent().parent().parent().parent().addClass('active');
+@endsection
+
+

@@ -4,8 +4,6 @@
 
 
     <script>
-        $(function () {
 
-        })
     </script>
 @endsection
