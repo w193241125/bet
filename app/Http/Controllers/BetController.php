@@ -47,7 +47,12 @@ class BetController extends Controller
      */
     public function store(StoreMatchPost $request)
     {
-        //
+        $addType = $request->input('addType');
+        $tmMatchId = $request->input('tmMatchId');
+        $pattern = '/\d+$/';
+        echo $tmMatchId;
+        preg_match($pattern, $tmMatchId, $matches);
+        print_r($matches);
     }
 
     /**

@@ -215,6 +215,7 @@
 
 @section('js')
     @parent
+    //验证失败跳转回来自动激活有问题的tab
     if($(".has-error").length)
     {
         $('.active').removeClass('active');

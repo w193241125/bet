@@ -28,17 +28,26 @@ class StoreMatchPost extends FormRequest
         {
             case 'tmMatch':
                 return [
-                    'tmMatchId' => 'required|integer|unique:betsys_match_info,tm_match_id'
+                    'tmMatchId' => 'required|regex:/\d$/'
                 ];
             case 'tmLeague':
                 return [
-                    'division' => 'required|integer',
-                    'group' => 'required|integer'
+                    'division' => 'required|integer|max:5|min:1',
+                    'group' => 'required|integer|max:128|min:1'
                 ];
             case 'customMatch':
                 return [
                     'home_name' => 'required|max:100'
                 ];
+            default:
+                return ['addType'=> 'required|in:tmMatch,tmLeague,customMatch'];
         }
+    }
+
+    //custom error msg
+    public function messages(){
+        return [
+            'tmMatchId.regex' => 'tmMatchId must terminate in number'
+        ];
     }
 }
