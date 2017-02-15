@@ -10,7 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Carbon\Carbon;
 use Auth;
 
-
+//登录时比对上次登录，更新登录信息
 class UpdateLastLogin
 {
     /**
