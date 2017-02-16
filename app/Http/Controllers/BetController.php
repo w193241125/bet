@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreMatchPost;
 use Illuminate\Http\Request;
+use Log;
+use Tm;
 
 class BetController extends Controller
 {
@@ -43,16 +45,37 @@ class BetController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * see app/requests/storeMatchPost.php
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(StoreMatchPost $request)
     {
+        //提交类型
         $addType = $request->input('addType');
-        $tmMatchId = $request->input('tmMatchId');
-        $pattern = '/\d+$/';
-        echo $tmMatchId;
-        preg_match($pattern, $tmMatchId, $matches);
-        print_r($matches);
+
+        switch ($addType)
+        {
+            case 'tmMatch':
+                //获取提内容中最后一段数字
+                $tmMatchId = $request->input('tmMatchId');
+                $pattern = '/\d+\/?$/';
+                preg_match($pattern, $tmMatchId, $matches);
+                //如果最后一位是/，则去掉/
+                if(substr($matches[0],-1) == '/')
+                {
+                    $matches[0] = substr($matches[0],0,-1);
+                }
+                Tm::tmMatchIdValid($matches[0]);
+                break;
+            case 'tmLeague':
+                break;
+            case 'customMatch':
+                break;
+            default:
+                Log::error('Add match without type！');
+                abort('500','添加tm比赛但未指定类型！');
+        }
     }
 
     /**

@@ -28,7 +28,7 @@ class StoreMatchPost extends FormRequest
         {
             case 'tmMatch':
                 return [
-                    'tmMatchId' => 'required|regex:/\d$/'
+                    'tmMatchId' => 'required|regex:/\d\/?$/'
                 ];
             case 'tmLeague':
                 return [

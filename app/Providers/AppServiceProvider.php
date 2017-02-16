@@ -15,10 +15,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //自定义验证
+        /*
+         * 自定义验证
+         * tm class 在app/custom/classes下
+         */
         Validator::extend('tm_team_id_valid', function($attribute, $value, $parameters, $validator)
         {
-            Tm::tmTeamIdValid($value);
+            return Tm::tmTeamIdValid($value);
         });
     }
 
