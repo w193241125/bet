@@ -27,6 +27,45 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('winOdds') ? ' has-error' : '' }}">
+                            <label for="winOdds" class="col-md-4 control-label">Win Odds</label>
+
+                            <div class="col-md-6">
+                                <input id="winOdds" type="text" class="form-control" name="winOdds" value="2" required>
+
+                                @if ($errors->has('winOdds'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('winOdds') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('drawOdds') ? ' has-error' : '' }}">
+                            <label for="drawOdds" class="col-md-4 control-label">Draw Odds</label>
+
+                            <div class="col-md-6">
+                                <input id="drawOdds" type="text" class="form-control" name="drawOdds" value="2" required>
+
+                                @if ($errors->has('drawOdds'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('drawOdds') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('loseOdds') ? ' has-error' : '' }}">
+                            <label for="loseOdds" class="col-md-4 control-label">Lose Odds</label>
+
+                            <div class="col-md-6">
+                                <input id="loseOdds" type="text" class="form-control" name="loseOdds" value="2" required>
+
+                                @if ($errors->has('loseOdds'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('loseOdds') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">

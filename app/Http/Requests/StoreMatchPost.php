@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Validator;
 
 class StoreMatchPost extends FormRequest
 {
@@ -28,7 +29,10 @@ class StoreMatchPost extends FormRequest
         {
             case 'tmMatch':
                 return [
-                    'tmMatchId' => 'required|regex:/\d\/?$/'
+                    'tmMatchId' => 'required|regex:/\d\/?$/|tm_match_id_valid',
+                    'winOdds' => 'required|numeric|between:1,999',
+                    'drawOdds' => 'required|numeric|between:1,999',
+                    'loseOdds' => 'required|numeric|between:1,999',
                 ];
             case 'tmLeague':
                 return [
@@ -47,7 +51,9 @@ class StoreMatchPost extends FormRequest
     //custom error msg
     public function messages(){
         return [
-            'tmMatchId.regex' => 'tmMatchId must terminate in number'
+            'tmMatchId.regex' => 'tmMatchId must terminate in number',
+            "tmMatchId.tm_match_id_valid" => "The match is not exist or was closed"
+
         ];
     }
 }

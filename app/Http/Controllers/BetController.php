@@ -57,16 +57,13 @@ class BetController extends Controller
         switch ($addType)
         {
             case 'tmMatch':
-                //获取提内容中最后一段数字
+                $winOdds = $request->input('winOdds');
+                $drawOdds = $request->input('drawOdds');
+                $loseOdds = $request->input('loseOdds');
                 $tmMatchId = $request->input('tmMatchId');
-                $pattern = '/\d+\/?$/';
-                preg_match($pattern, $tmMatchId, $matches);
-                //如果最后一位是/，则去掉/
-                if(substr($matches[0],-1) == '/')
-                {
-                    $matches[0] = substr($matches[0],0,-1);
-                }
-                Tm::tmMatchIdValid($matches[0]);
+                $tmMatchId = Tm::getMatchId($tmMatchId);
+                $matchInfo = Tm::matchInfo($tmMatchId);
+                Tm::storeMatch($matchInfo,$winOdds,$drawOdds,$loseOdds);
                 break;
             case 'tmLeague':
                 break;

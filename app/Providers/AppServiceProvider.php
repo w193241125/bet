@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
         {
             return Tm::tmTeamIdValid($value);
         });
+        Validator::extend('tm_match_id_valid', function($attribute, $value, $parameters, $validator)
+        {
+            return Tm::tmMatchIdValid($value);
+        });
     }
 
     /**
@@ -33,9 +37,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         //
-        if ($this->app->environment() == 'local') {
+        /*if ($this->app->environment() == 'local') {
             // $this->app->register('Laracasts\Generators\GeneratorsServiceProvider'); // you're using Jeffrey way's generators, too, right?
             $this->app->register('Backpack\Generators\GeneratorsServiceProvider');
         }
+        */
+        $this->app->register('Backpack\Generators\GeneratorsServiceProvider');
     }
 }

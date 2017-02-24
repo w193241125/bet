@@ -33,7 +33,7 @@ class Tm
         }
     }
     /*
-     * 验证tm team id 是否存在且为主队
+     * 验证tm team id 是否存在且非预备队
      * 存在且为主队返回true
      * 否则返回false
      */
@@ -83,38 +83,90 @@ class Tm
         return True;
     }
 
-    public function tmMatchIdValid($matchId)
+    /*
+     * 验证比赛是否存在，且还未到截至时间
+     *
+     */
+    public function tmMatchIdValid($url)
     {
         $client = new Client(['cookies' => true]);
         $this->tmLogin($client);
         try
         {
+            $matchId = $this->getMatchId($url);
             //获取TM match info
             $response = $client->request('GET', config('bet.tmurl.tm_url').config('bet.tmurl.tm_match_info_url').'?id='.$matchId);
             $json = json_decode($response->getBody());
 
-            //判断比赛是否已经开赛
-            if(!isset($json->prematch))
+            //判断比赛是否已经开赛,如果prematch存在表示未开赛,report为空表示此比赛不存在
+            if(isset($json->prematch)&&$json->report!==Null)
             {
-                return False;
+                //距离开始时间不可小于规定时间
+                if(abs($json->prematch)>config('bet.bet.deadline_time'))
+                    return True;
             }
-
-            //如果有主队则验证失败
-            if($json->club->main_team !== '')
-            {
-                return False;
-            }
-
         }
         catch(GuzzleException $e)
         {
             Log::error($e);
         }
-        return True;
+        return False;
     }
 
-    public function test()
+    /*
+     * 通过提交的url获取比赛信息
+     * 返回json对象
+     */
+    public function matchInfo($url)
     {
-        return 'TM Test';
+        $client = new Client(['cookies' => true]);
+        $this->tmLogin($client);
+        try
+        {
+            $matchId = $this->getMatchId($url);
+            //获取TM match info
+            $response = $client->request('GET', config('bet.tmurl.tm_url').config('bet.tmurl.tm_match_info_url').'?id='.$matchId);
+            $json = json_decode($response->getBody());
+        }
+        catch(GuzzleException $e)
+        {
+            Log::error($e);
+            abort('500','获取比赛信息出错！');
+        }
+        //添加比赛id进入json
+        $json->match_id = $matchId;
+        return $json;
     }
+
+    //从提交的字符串里取出match id
+    public function  getMatchId($url)
+    {
+        //获取提内容中最后一段数字
+        $pattern = '/\d+\/?$/';
+        preg_match($pattern, $url, $matches);
+        //如果最后一位是/，则去掉/
+        if(substr($matches[0],-1) == '/')
+        {
+            $matches[0] = substr($matches[0],0,-1);
+        }
+        return $matches[0];
+    }
+
+    /*
+     * 添加比赛，默认各种赔率为2
+     *  matchInfo 为json 对象
+     */
+    public function storeMatch($matchInfo,$winOdds = 2,$drawOdds = 2,$loseOdds = 2)
+    {
+        if($matchInfo !== Null)
+        {
+            var_dump($matchInfo);
+        }
+        else
+        {
+            Log::error('the match info is null when admin add a match');
+            abort('500','未能获取到相关比赛信息！');
+        }
+    }
+
 }
